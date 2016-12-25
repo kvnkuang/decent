@@ -1,5 +1,6 @@
 {{! This is the post loop - each post will be output using this markup }}
 {{#foreach posts}}
+{{#ifCond tags.0.slug '!=' "unlisted"}}
 <article class="{{post_class}} short-diver">
     <header class="post-header">
         <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
@@ -13,6 +14,7 @@
         <p>{{excerpt words="26"}} ... <a class="read-more" href="{{url}}">read more</a></p>
     </section>
 </article>
+{{/ifCond}}
 {{/foreach}}
 
 {{! Previous/next page links - displayed on every page }}
